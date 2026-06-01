@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <h1>Trabalhando com formulários</h1>
+
+    <form action="#" id="exemplo1">
+        <input type="text" name="nome" id="nome" placeholder="Nome" >
+        <input type="email" name="email" id="email" placeholder="Email"  >
+        <input type="password" name="senha" id="senha" placeholder="Senha"  >
+        <input type="submit" value="Enviar">
+    </form>
+
+    <form action="" id="exemplo2">
+        <input type="text" placeholder="digite o título da pesquisa" id="pesquisa">
+        <p class="erro oculta" id="erroPesquisa">Campo reservado para erros</p>
+        <input type="submit" value="Pesquisar">
+    </form>
+
+    <h1 id="termoPesquisa"></h1>
+
+
+    <section id="atividade1" class="oculta">
+
+        <form action="" id="cadastroProduto" >
+            <input type="text" id="nomeProduto" placeholder="Digite o nome do produto">
+            <input type="url" id="imagemProduto" placeholder="Digite a url da imagem">
+            <input type="number" id="precoProduto" placeholder="Digite o preco do produto">
+            <p class="erro oculta" id="erroPreco">O preço do produto deve ser maior que zero</p>
+            <textarea name="" id="descricaoProduto" placeholder=" digite a descrição do produto" cols="40" rows="10"></textarea>
+            <input type="submit" value="Enviar">
+            <p class="erro oculta" id="erroProduto">Produto já cadastrado, altere o nome do produto</p>
+
+        </form>
+
+        <div id="produtoCadastrado">
+
+        </div>
+
+    </section>
+
+    <form action="" id="exemplo3">
+        <input type="text" placeholder="digite um texto" id="inputMudanca">
+    </form>
+
+    <p id="textoExemplo3"></p>
+
+    <section id="atividade2" class="oculta">
+
+        <form action="">
+            <p>Comanda automática. Digite os valores e automaticamente os campos de Taxa de Serviço, Subtotal e Total serão preenchidos</p>
+            <input type="number" id="entrada" placeholder="digite o valor da entrada">
+
+            <input type="number" id="pratoPrincipal" placeholder="digite o valor do prato principal">
+
+            <input type="number" id="bebidas" placeholder="digite o valor das bebidas">
+
+            <input type="number" id="sobremesa" placeholder="digite o valor da sobremesa">
+
+            <label for="taxaServico">Taxa de Serviço</label>
+            <input type="number" id="taxaServico" placeholder="Taxa de serviço" value="0" disabled>
+
+            <label for="subTotal">Subtotal</label><input type="number" id="subTotal" value="0" disabled></label>
+
+            <label for="total">Total com taxas</label><input type="number" id="total" value="0" disabled></label>
+        </form>
+
+        <button> Limpar Comanda</button>
+
+    </section>
+
+
+
+    <script src="atividade02.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,86 @@
+/*  1. Transforme os links do menu utilizando as propriedades de display.
+    2. Os itens do menu devem ser renderizados um ao lado do outro e com espaçamento igual entre eles, mas as bordas devem ser renderizadas não devem ter espaçamento entre elas e o item do menu.
+    Dica: utilize display flex em conjunto com as propriedades justify-content e align-items para facilitar o alinhamento dos itens.
+     Dica 2 : adicione um background e uma borda para os itens do menu para facilitar a visualização do exercício. 
+         
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    background-color: #0087f5;
+    color: #fff;
+    padding: 20px;
+
+}
+
+.menu {
+    background-color: #f29422;
+    display: flex;
+}
+
+.header {
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    background-color: azure;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* nav ul li {
+   margin: 0px 10px;
+} */
+
+
+/* EXERCÍCIO 2:
+    1. Defina um background claro para a seção do banner.
+    2. Teste como imagens com um display flex em diferentes direções (flex direction) s
+    3. As imagens devem ser renderizadas uma abaixo da outra, com espaçamento de 10px  não utilize o margin, dica use o gap
+    4. As imagens devem ser centralizadas horizontalmente. Poderá usar o justify-content ou o align-items para isso, a depender da direção do flex escolhida.
+ */
+
+ .banner {
+    background-color: #f29422;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+ }
+
+/* 
+
+EXERCÍCIO 3
+     - cada div com a classe produto deve ser renderizada como um card, ou seja, com uma borda, um background claro e um espaçamento interno (padding de 10px) para separar o conteúdo da borda do card.
+     a imagem deve ser renderizada ao lado do conteúdo do card que está denntro de uma div.
+     Cada card de produto deve ter a largura de 600px 
+
+*/
+
+.produto {
+    background-color: #776a5a;
+    border: #0087f5 2px solid;
+    padding: 10px;
+    display: flex;
+    width: 600px;
+}
+
+.produtos-continuner {
+    display: flex;
+    flex-direction: wrap;
+    gap: 10px;
+}

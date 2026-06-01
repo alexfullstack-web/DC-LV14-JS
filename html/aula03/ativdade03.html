@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- você precisa criar um formulário de agendamento de consulta
+        o formulario deverá conter:
+        - nome do paciente
+        - data da consulta
+        - hora da consulta
+        - anexar o encominhanto médico
+        - telefone
+        - botão para enviar o formulário
+    -->
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        table, th, td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+    <h1>Agendamento de consulta</h1>
+
+    <form action="#" method="post">
+        <label for="nome_do_paciente">Nome do paciente:</label>
+        <input type="text" id="nome_do_paciente" name="nome_do_paciente" placeholder="Digite seu nome ">
+        <br>
+
+        <label for="data_da_consulta">Data da consulta:</label>
+        <input type="date" id="data_da_consulta" name="data_da_consulta" >
+        <br>
+
+        <label for="hora_da_consulta">Hora da consulta:</label>
+        <input type="time" id="hora_da_consulta" name="hora_da_consulta">
+        <br>
+
+        <label for="anexar o encominhanto médico">Anexar o encominhanto médico:</label>
+        <input type="file" id="anexar o encominhanto médico" name="anexar o encominhanto médico">
+        <br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
