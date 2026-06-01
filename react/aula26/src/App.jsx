@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import './App.css'
 import acesa from './assets/acesa.png'
 import apagada from './assets/apagada.png'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Atividade01 from './components/atividade01'
+import Atividadde02 from './components/atividade02'
+
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,9 +22,11 @@ function App() {
       <div id="aula26">
         <h1>aula 26</h1>
       </div>
-      <div id="atividade01"> 
-        <img src={count % 2 === 0 ? apagada : acesa} alt="Lâmpada" />
-        <button onClick={handleClick}>{count % 2 === 0 ? 'Acender' : 'Apagar'}</button>
+      <div id="atividade01" className='d-none'> 
+        <Atividade01 />
+      </div>
+      <div id="atividade02" className='d-none'>
+        <Atividadde02 senhaCorreta="olamundo123" />
       </div>
     </>
   )
