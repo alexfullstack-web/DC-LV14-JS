@@ -6,6 +6,7 @@ import Home from "../paginas/Home";
 import Produtos from "../paginas/Produtos"; 
 import PaginaNaoEncontrada from "../paginas/PaginaNaoEncontrada";
 import DetalheProduto from "../paginas/DetalheProduto";
+import CadastroProduto from "../paginas/CadastraProdutos";
 
 
 
@@ -16,6 +17,7 @@ export default function Rotas() {
             <Route path="/produtos" element={<Produtos />} />
             <Route path="/produtos/:id" element={<DetalheProduto />} />
             <Route path="*" element={<PaginaNaoEncontrada />} />
+            <Route path="/cadastro" element={<CadastroProduto />} />
         </Routes>
     );
 }

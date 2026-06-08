@@ -9,6 +9,9 @@ import Rotas from './rotas/Rotas'
 import './App.css'
 import Header from './components/Header'
 import Layout from './components/Layout'
+import ProdutosProvider from "./contextos/ProdutosContext";
+
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -22,10 +25,12 @@ function App() {
       
 
       <BrowserRouter>
+      <ProdutosProvider>
         <Layout>
           <Rotas />
         </Layout>
-      </BrowserRouter>
+      </ProdutosProvider>
+    </BrowserRouter>
     </>
   )
 }
