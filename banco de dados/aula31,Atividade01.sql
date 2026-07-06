@@ -9,7 +9,8 @@ nacionalidade - textual com até 50 caracteres*/
 create table if not exists autores (
 	id_autor int auto_increment primary key , 
     nome varchar(100) not null,
-    nacionalidade varchar(50) not null
+    nacionalidade varchar(50) not null,
+    data_nacimento date not null
 );
 
 /**Tabela categorias**
