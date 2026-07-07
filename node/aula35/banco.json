@@ -39,6 +39,16 @@
       "id": 20,
       "nome": "Uva",
       "preco": 1.5
+    },
+    {
+      "id": 10,
+      "nome": "Pera",
+      "preco": 2.5
+    },
+    {
+      "id": 20,
+      "nome": "Uva",
+      "preco": 1.5
     }
   ],
   "legumes": [
