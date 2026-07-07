@@ -16,35 +16,31 @@ exibir uma mensagem no console com o erro ocorrido, de forma clara para o usuár
 
 const fs = require("fs");
 
-
-
 fs.readFile("texto1.txt", "utf-8", (err, data) => {
+  if (err) {
+    console.log("Erro ao ler o arquivo texto1.txt:", err.message);
+    return;
+  } else {
+    console.log("Conteúdo do arquivo texto1.txt:");
+    console.log(data);
+  }
+
+  fs.readFile("texto2.txt", "utf-8", (err, data2) => {
     if (err) {
-        console.log("Erro ao ler o arquivo texto1.txt:", err.message);
-        return;
+      console.log("Erro ao ler o arquivo texto2.txt:", err.message);
+      return;
     } else {
-        console.log("Conteúdo do arquivo texto1.txt:");
-        console.log(data);
+      console.log("Conteúdo do arquivo texto2.txt:");
+      console.log(data2);
     }
 
-    fs.readFile("texto2.txt", "utf-8", (err, data2) => {
-        if (err) {
-            console.log("Erro ao ler o arquivo texto2.txt:", err.message);
-            return;
-        } else {
-            console.log("Conteúdo do arquivo texto2.txt:");
-            console.log(data2);
-        }
+    fs.writeFile("texto3.txt", data + data2, (err) => {
+      if (err) {
+        console.log("Erro ao escrever o arquivo texto3.txt:", err.message);
+        return;
+      }
 
-        fs.writeFile("texto3.txt", data + data2, (err) => {
-            if (err) {
-                console.log("Erro ao escrever o arquivo texto3.txt:", err.message);
-                return;
-            }
-
-            console.log("Arquivo texto3.txt criado com sucesso!");
-        });
+      console.log("Arquivo texto3.txt criado com sucesso!");
     });
+  });
 });
-
-
