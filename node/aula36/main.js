@@ -23,28 +23,11 @@ Content-Type com o valor application/json, além do status 200.*/
 
 const http = require("http");
 const fs = require("fs");
-const path = require("path");
+
 
 const server = http.createServer((req, res) => {
-  if (req.method === "GET") {
-    fs.readFile(
-      path.join(__dirname, "bancoJson.json"),
-      "utf-8",
-      (erro, dados) => {
-        if (erro) {
-          res.writeHead(500, { "Content-Type": "application/json" });
-
-          return res.end(
-            JSON.stringify({
-              status: 500,
-              mensagem: "Erro ao ler o arquivo JSON.",
-            }),
-          );
-        }
-
-        const banco = JSON.parse(dados);
-
-        const resposta = {
+  const banco = JSON.parse(fs.readFileSync("./bancoJson.json", "utf-8"));
+  const resposta = {
           status: 200,
           api: "./bancoJson.json",
           frutas: banco.frutas.length,
@@ -52,25 +35,8 @@ const server = http.createServer((req, res) => {
           dados: banco,
         };
 
-        res.writeHead(200, {
-          "Content-Type": "application/json",
-        });
-
-        res.end(JSON.stringify(resposta));
-      },
-    );
-  } else {
-    res.writeHead(404, {
-      "Content-Type": "application/json",
-    });
-
-    res.end(
-      JSON.stringify({
-        status: 404,
-        mensagem: "Rota não encontrada.",
-      }),
-    );
-  }
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify(resposta));
 });
 
 server.listen(3001, () => {
