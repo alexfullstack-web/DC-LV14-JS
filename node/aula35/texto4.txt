@@ -1,0 +1,4 @@
+Resultado da concatenação 
+teste
+
+teste

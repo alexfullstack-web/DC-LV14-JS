@@ -1,29 +1,70 @@
-const { abrirConta, depositar, sacar, extrato } = require("./atividade01");
+//importação do módulo 
+const operacoesMatematicas = require('./oprecoesMatematica');
+//operações matemáticas é um objeto que contém as funções do módulo
+const {somar, subtrair, multiplicar, dividir} = require('./oprecoesMatematica'); //desestruturação do objeto operacoesMatematicas para obter as funções diretamente
+const operacoesBancarias = require('./atividade01');
 
-let conta1 = abrirConta("João", "12345", "001", 1000);
+const concatenar = require('./atividade02');
+
+const gestorDbLoja = require('./atividade03');
+
+//------------------EXEMPLOS--------------------
+
+let resultado = operacoesMatematicas.somar(10, 5);
+console.log('resultado: ', resultado);
 
 
-depositar(conta1, 500);
-sacar(conta1, 200);
-extrato(conta1);
+//------- ATIVIDADE 1 -----------------
 
-console.log(
-    `Conta de ${conta1.nome} - Número: ${conta1.numeroConta}, Agência: ${conta1.agencia}, Saldo: R$ ${conta1.saldo.toFixed(2)}`
-);
+// Abrindo uma conta
+const conta1 = operacoesBancarias.abrirConta("Maria Silva", "12345-6", "0001", 500);
 
-const{ lerArquivoJson, escreverArquivoJson, buscarObjeto } = require("./atividade03");
+console.log(conta1);
 
-const caminhoArquivo = "banco.json";
+// Depositando
+operacoesBancarias.depositar(conta1, 200);
 
-const frutas = lerArquivoJson(caminhoArquivo);
+// Sacando
+operacoesBancarias.sacar(conta1, 150);
 
-frutas.frutas.push({ id: 10, nome: "Pera", preco: 2.5 });
-frutas.frutas.push({ id: 20, nome: "Uva", preco: 1.5 });
+// Consultando extrato
+operacoesBancarias.extrato(conta1);
 
-escreverArquivoJson(caminhoArquivo, frutas);
+//------- ATIVIDADE 2 -----------------
 
-const objeto = buscarObjeto(caminhoArquivo, "frutas", 10);
-console.log(objeto);
+// Concatenando arquivos
+//concatenar.concatenarArquivosAssincrono('./texto.txt', './texto2.txt', './texto3.txt');
 
-const objeto2 = buscarObjeto(caminhoArquivo, "frutas", 20);
-console.log(objeto2);
+concatenar.concatenarArquivosSincrono('./texto.txt', './texto2.txt', './texto4.txt');
+
+
+//------- ATIVIDADE 3 -----------------
+console.log('-------------------------------------------')
+// Criando o banco de dados da loja
+console.log(gestorDbLoja.lerBanco())
+// Buscando um objeto no banco de dados
+console.log(gestorDbLoja.lerColecao('frutas'))
+
+console.log(gestorDbLoja.buscarObjeto('frutas', 2))
+
+console.log(gestorDbLoja.escreverBanco(
+    {
+  frutas: [
+    { id: 1, nome: 'Banana', preco: 2.5 },
+    { id: 2, nome: 'Maçã', preco: 3 },
+    { id: 3, nome: 'Laranja', preco: 2 },
+    { id: 4, nome: 'Abacaxi', preco: 2.5 }
+  ],
+  legumes: [
+    { id: 4, nome: 'Cenoura', preco: 1.5 },
+    { id: 5, nome: 'Batata', preco: 2 },
+    { id: 6, nome: 'Tomate', preco: 2.5 },
+    { id: 7, nome: 'beterraba', preco: 1 },
+    { id: 8, nome: 'abobrinha', preco: 1.5 }
+  ]
+}
+)) // objeto não encontrado
+
+gestorDbLoja.adicionarObjetoColecao('frutas', {id: 6, nome: 'Uva', preco: 2.5})
+
+gestorDbLoja.criarNovaColecao('vegetais')

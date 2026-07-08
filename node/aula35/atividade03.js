@@ -19,28 +19,75 @@ deve receber como parâmetro o nome da coleção e o id do objeto a ser buscado,
 
 const fs = require("fs");
 
-function lerArquivoJson(caminhoArquivo) {
-  const dados = fs.readFileSync(caminhoArquivo, "utf-8");
-  return JSON.parse(dados);
+// Função para ler o arquivo JSON
+function lerBanco() {
+    const dados = fs.readFileSync("./banco.json", "utf-8");
+    return JSON.parse(dados);
 }
 
-function escreverArquivoJson(caminhoArquivo, objeto) {
-  const dados = JSON.stringify(objeto, null, 2);
-  fs.writeFileSync(caminhoArquivo, dados, "utf-8");
+//ler coleção
+function lerColecao(colecao) {
+    const dados = JSON.parse(fs.readFileSync("./banco.json", "utf-8"))
+        
+    if(dados[colecao]){
+        return dados[colecao]
+    }
+    else{
+        return "Coleção nao encontrada"
+    }
 }
 
-function buscarObjeto(caminhoArquivo, colecao, id) {
-  const dados = lerArquivoJson(caminhoArquivo);
-  const objeto = dados[colecao].find((obj) => obj.id === id);
-  if (objeto) {
+
+// Função para escrever no arquivo JSON
+function escreverBanco(objeto) {
+    fs.writeFileSync(
+        "./banco.json",
+        JSON.stringify(objeto),
+        "utf-8"
+    );
+}
+
+// Função para buscar um objeto por coleção e id
+function buscarObjeto(colecao, id) {
+    const banco = lerBanco();
+
+    // Verifica se a coleção existe
+    if (!banco[colecao]) {
+        return "Coleção não encontrada.";
+    }
+
+    const objeto = banco[colecao].find(item => item.id === id);
+
+    if (!objeto) {
+        return "Objeto não encontrado.";
+    }
+
     return objeto;
-  } else {
-    return "Objeto nao encontrado";
-  }
-}   
+}
+
+function adicionarObjetoColecao(colecao, objeto) {
+    const banco = lerBanco();
+    if(!banco[colecao]){
+       console.log("Coleção nao encontrada")
+       //se a coleção não existir não se pode adicionar o objeto
+    }
+    banco[colecao].push(objeto);
+    //atualizar o banco inteiro
+    escreverBanco(banco);
+}
+
+function criarNovaColecao(colecao) {
+    const banco = lerBanco();
+    banco[colecao] = [];
+    escreverBanco(banco);
+    console.log(`Coleção ${colecao} criada com sucesso!`);
+}
 
 module.exports = {
-  lerArquivoJson,
-  escreverArquivoJson,
-  buscarObjeto,
+    lerBanco,
+    lerColecao,
+    escreverBanco,
+    buscarObjeto,
+    adicionarObjetoColecao,
+    criarNovaColecao
 };
