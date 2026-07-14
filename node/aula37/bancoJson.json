@@ -34,6 +34,20 @@
       "id": 7,
       "nome": "Banana2",
       "preco": 2.2
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0"
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 9
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 6
     }
   ],
   "legumes": [
@@ -61,6 +75,51 @@
       "id": 8,
       "nome": "abobrinha",
       "preco": 1.5
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 6
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 7
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 8
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 9
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 10
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 11
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 12
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 13
+    },
+    {
+      "nome": "maça",
+      "preco": "2.0",
+      "id": 14
     }
   ],
   "vegetais": []
