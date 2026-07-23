@@ -1,4 +1,4 @@
-const Usuarios = require('../1.Modelo/usuariosModel')
+const Usuarios = require('../model/usuariosModel')
 const bcrypt = require('bcrypt')
 
 //C - criar um usuario

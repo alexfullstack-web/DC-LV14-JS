@@ -65,3 +65,8 @@ async function postUsuario(req, res){
         })
     }
 }
+
+module.exports = {
+    getusuarios,
+    postUsuario
+}
